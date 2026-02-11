@@ -30,4 +30,20 @@ class ContactManager {
     return $contacts; 
   }
 
+  public function findById(int $id): ?Contact {
+    $query = $this->db->prepare("SELECT * from contact WHERE id = :id");
+    $query->execute(['id' => $id]);
+    $data = $query->fetch(PDO::FETCH_ASSOC);
+
+    if (!$data) {
+        return null; 
+    }
+
+    $contact = new Contact();
+    return $contact->setId($data['id'])
+            ->setName($data['name'])
+            ->setEmail($data['email'])
+            ->setPhoneNumber($data['phone_number']); 
+  }
+
 }

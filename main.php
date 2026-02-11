@@ -9,9 +9,15 @@ while (true) {
     $line = readline("Entrez votre commande : ");
     
     if ($line == 'list') {
-        $command = new Command;
+        $command = new Command();
         $command->list();  
-    } else {
+    } elseif (preg_match('/^detail (\d+)$/', $line, $matches)) {
+        $id = (int)$matches[1];
+
+        $command = new Command();
+        $command->detail($id);
+    } 
+    else {
         echo "Vous avez saisi : $line\n";
     }
 }

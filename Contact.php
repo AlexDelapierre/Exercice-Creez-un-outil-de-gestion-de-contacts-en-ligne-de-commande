@@ -4,7 +4,7 @@ class Contact {
     private ?int $id = null;
     private string $name;
     private string $email;
-    private string $phone_number;
+    private string $phoneNumber;
 
     public function __toString(): string
     {
@@ -13,7 +13,7 @@ class Contact {
             $this->id ?? 'Nouveau',
             $this->name,
             $this->email,
-            $this->phone_number
+            $this->phoneNumber
         );
     }
 
@@ -49,11 +49,11 @@ class Contact {
 
     // --- PHONE NUMBER ---
     public function getPhoneNumber(): string {
-        return $this->phone_number;
+        return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(string $phone_number): self {
-        $this->phone_number = $phone_number;
+    public function setPhoneNumber(string $phoneNumber): self {
+        $this->phoneNumber = $phoneNumber;
         return $this;
     }
 }

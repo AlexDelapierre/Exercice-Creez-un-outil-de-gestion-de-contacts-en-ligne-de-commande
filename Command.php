@@ -30,4 +30,25 @@ Class Command {
     }
   }
 
+  public function create(string $name, string $email, string $phoneNumber) {
+    $db = new DBConnect();
+    $pdo = $db->getPDO();
+    $contactManager = new ContactManager($pdo);
+    return $contactManager->new($name, $email, $phoneNumber);
+  }
+
+  public function update(int $id, string $name, string $email, string $phoneNumber) {
+    $db = new DBConnect();
+    $pdo = $db->getPDO();
+    $contactManager = new ContactManager($pdo);
+    return $contactManager->update($id, $name, $email, $phoneNumber);
+  }
+
+  public function delete (int $id) {
+    $db = new DBConnect();
+    $pdo = $db->getPDO();
+    $contactManager = new ContactManager($pdo);
+    return $contactManager->delete($id);
+  }
+
 }

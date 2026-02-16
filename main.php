@@ -15,7 +15,7 @@ while (true) {
         echo "list : liste les contacts" . PHP_EOL;
         echo "detail [id] : affiche un contact" . PHP_EOL;
         echo "create [name], [email], [phone number] : crée un contact" . PHP_EOL;
-        echo "update [id], [name], [email], [phone number] : crée un contact" . PHP_EOL;
+        echo "modify [id], [name], [email], [phone number] : crée un contact" . PHP_EOL;
         echo "delete [id] : supprime un contact" . PHP_EOL;
         echo "quit : quitte le programme" . PHP_EOL;
 
@@ -31,7 +31,7 @@ while (true) {
 
         $command->create($name, $email, $phoneNumber);
         echo "Le contact '$name' a bien été ajouté." . PHP_EOL;
-    } elseif (preg_match('/^update\s+(\d+),\s*([^,]+),\s*([^,]+),\s*(.+)$/i', $line, $matches)) {
+    } elseif (preg_match('/^modify\s+(\d+),\s*([^,]+),\s*([^,]+),\s*(.+)$/i', $line, $matches)) {
         $id    = (int)$matches[1];
         $name  = trim($matches[2]);
         $email = trim($matches[3]);

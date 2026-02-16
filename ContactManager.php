@@ -59,7 +59,6 @@ class ContactManager {
   }
 
   public function update(int $id, string $name, string $email, string $phoneNumber) {
-    // Correction : phone_number (nom en BDD) = :phone (marqueur)
     $sql = "UPDATE contact SET name = :name, email = :email, phone_number = :phone WHERE id = :id";
     $query = $this->db->prepare($sql);
     
